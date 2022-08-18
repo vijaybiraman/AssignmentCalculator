@@ -1,0 +1,28 @@
+﻿<Window x:Class="CalculatorDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:Calculator x:Key="commndObj"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel DataContext="{StaticResource commndObj}">
+            <TextBlock Name="FirstNumber" Text="First Number" Height="30" Width="70" HorizontalAlignment="Left" VerticalAlignment="top" Margin="20,50,0,0"></TextBlock>
+            <TextBox Name="txtfirstname" Text="{Binding FirstNumber, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="top" Margin="150,-30,0,0" Width="90" Height="30"></TextBox>
+            <TextBlock Name="SecondNumber" Text="Second Number" Height="30" Width="90" HorizontalAlignment="Left" VerticalAlignment="top" Margin="20,50,0,0"></TextBlock>
+            <TextBox Name="txtsecondname" Text="{Binding SecondNumber, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="top" Margin="150,-30,0,0" Width="90" Height="30"></TextBox>
+            
+            <TextBlock Name="Result" Text="Result" Height="30" Width="70" HorizontalAlignment="Left" VerticalAlignment="top" Margin="20,50,0,0"></TextBlock>
+            <TextBox Name="txtResult" Text="{Binding Result}"  HorizontalAlignment="Left" VerticalAlignment="top" Margin="150,-30,0,0" Width="90" Height="30"></TextBox>
+
+            <Button Name="btnAdd" Content="Addition" Margin="50,20,0,0" HorizontalAlignment="left" VerticalAlignment="Center" Command="{Binding AdditionCommand}"></Button>
+            <Button Name="btnSub" Content="Subtract" Margin="120,-20,0,0" HorizontalAlignment="left" VerticalAlignment="Center" Command="{Binding SubtractionCommand}"></Button>
+            <Button Name="btnMul" Content="Multiply" Margin="190,-20,0,0" HorizontalAlignment="left" VerticalAlignment="Center" Command="{Binding MultiplyCommand}"></Button>
+            <Button Name="btnDiv" Content="Division" Margin="260,-20,0,0" HorizontalAlignment="left" VerticalAlignment="Center" Command="{Binding DivisionCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
